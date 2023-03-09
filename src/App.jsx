@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import AddList from './components/AddList';
 import ListControl from './components/ListControl';
+import ListFilter from './components/ListFilter';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -28,8 +29,9 @@ function App() {
   // onDelete가 호출되면 이 함수가 실행될 것이여
 
   return (
-    <div className='m-auto mt-8 bg-slate-500 w-96'>
+    <div className='m-auto mt-8 w-96'>
       <h1 className='text-2xl font-bold text-center'>지운이의 TodoApp</h1>
+      <ListFilter />
       <AddList onAdd={handleAdd} />
       <ul className='mt-6'>
         {todos.map((item) => (
