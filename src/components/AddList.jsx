@@ -9,11 +9,15 @@ export default function AddList({ onAdd }) {
   const handleOnSubmit = (e) => {
     // handleOnSubmit 함수는 사용자가 입력한 text 값을 App.jsx의 todos 배열에 넣어준다.
     e.preventDefault();
+    // 텍스트 길이가 0이면 추가안함
+    if (text.trim().length === 0) {
+      return;
+    }
     onAdd({ id: uuidv4(), text, status: 'active' });
     setText('');
   };
   return (
-    <form className='flex items-center mt-9' onSubmit={handleOnSubmit}>
+    <form className='flex items-center pl-4 mt-9' onSubmit={handleOnSubmit}>
       <input className='w-full border-2' type='text' placeholder='할일을 입력하쇼' text={text} onChange={handleOnchange} />
       <button>
         <AiOutlinePlusCircle className='text-2xl w-14' />
